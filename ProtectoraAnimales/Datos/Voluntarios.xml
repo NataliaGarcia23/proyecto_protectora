@@ -1,0 +1,17 @@
+﻿<Voluntarios>
+	<Voluntario DNI="652478522E" correo="Sanchezelena@hotmail.com" telefono="756542885"
+	nombre="Elena"
+	apellido="Sánchez"
+	foto="imagenes/elena.png"
+	zona="imagenes/zona1.png"/>
+	<Voluntario DNI="45668529G" correo="albertrom@hotmail.com" telefono="604108550"
+	nombre="Alberto"
+	apellido="Romero"
+	foto="imagenes/alberto.jpg"
+	zona="imagenes/zona2.png"/>
+	<Voluntario DNI="88014539B" correo="sergito77@hotmail.com" telefono="668552010"
+	nombre="Sergio"
+	apellido="Rivera"
+	foto="imagenes/sergio.png"
+	zona="imagenes/zona2.png"/>
+</Voluntarios>

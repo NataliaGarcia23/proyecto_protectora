@@ -1,0 +1,24 @@
+﻿<Socios>
+	<Socio DNI="48526795R" correo="Mari42@hotmail.com" telefono="685774521"
+	nombre="María"
+	apellido="Rodriguez"
+	foto="imagenes/maria.jpg"
+	cuenta="ES6685857468521498745214"
+	forma="paypal"
+	cuantia="100 euros"/>
+	<Socio DNI="654774125Y" correo="Pacoperez12@hotmail.com" telefono="625456289"
+	nombre="Paco"
+	apellido="Pérez"
+	foto="imagenes/paco.png"
+	cuenta="ES1245987556874563219875"
+	forma="transferencia"
+	cuantia="80 euros"/>
+	<Socio DNI="488753291P" correo="Lugarcia677@hotmail.com" telefono="698752144"
+	nombre="Lucas"
+	apellido="García"
+	foto="imagenes/lucas.jpg"
+	cuenta="ES5574896523984562587456"
+	forma="bizum"
+	cuantia="60 euros"/>
+</Socios>
+

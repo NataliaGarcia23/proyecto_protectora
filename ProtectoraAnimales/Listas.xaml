@@ -1,0 +1,333 @@
+﻿<Window x:Class="ProtectoraAnimales.Listas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProtectoraAnimales"
+        mc:Ignorable="d"
+        Title="Listas" Height="686.7" Width="1179.2">
+    <Grid Background="#FFEAB981" Margin="0,0,-6.2,-121.2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="442*"/>
+            <RowDefinition Height="285*"/>
+            <RowDefinition Height="52*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="590*"/>
+            <ColumnDefinition Width="290*"/>
+            <ColumnDefinition Width="299*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="tcPestanas" FontSize="20" Margin="0,31,-0.8,0.4" SelectionChanged="tcPestanas_SelectionChanged" Background="#FFEAB981" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <TabItem Header="Perros">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="66*"/>
+                        <ColumnDefinition Width="41*"/>
+                        <ColumnDefinition Width="198*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="483*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="lstListaPerros" Grid.Column="0" SelectedIndex="0" Margin="5,5,4.8,5" ItemsSource="{Binding}" Grid.ColumnSpan="3" Foreground="#FFF9F4F4">
+                        <ListBox.BorderBrush>
+                            <SolidColorBrush Color="White" Opacity="0"/>
+                        </ListBox.BorderBrush>
+                        <ListBox.Background>
+                            <SolidColorBrush Color="Black" Opacity="0.7"/>
+                        </ListBox.Background>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="80" Height="80"
+                                        Source="{Binding foto}"/>
+                                    <TextBlock VerticalAlignment="Center"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding nombre}" FontSize="20"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Margin" Value="2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Foreground" Value="#FF05FADC"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="BorderBrush" Value="#FF05FADC"/>
+                                        <Setter Property="BorderThickness" Value="3"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="miAniadirItemLBPerros" Header="Añadir perro" Click="miAniadirItemLBPerros_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="Imagenes/add_c.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem x:Name="miEliminarItemLBPerros" Header="Eliminar perro" Click="miEliminarItemLBPerros_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="Imagenes/remove_c.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                    <StackPanel x:Name="spDetallesPerros" Grid.Column="3"
+                        Orientation="Vertical" Grid.ColumnSpan="2" Margin="0.2,0,0,0">
+                        <Grid Margin="0,0,0.2,0" Height="756">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblNombrePerro" FontSize="20"
+                            Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.nombre}" Margin="119,15,-53.8,679" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblRaza" FontSize="20"
+                            Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.raza}" Margin="106,73,63.8,638" Grid.ColumnSpan="2"/>
+                            <Label Content ="Nombre:" FontWeight="Bold" FontSize="20" Margin="10,15,134.8,679"/>
+                            <Label Content ="Raza:" FontWeight="Bold" FontSize="20" Margin="10,71,178.8,619"/>
+                            <Label Content ="Sexo:" FontWeight="Bold" FontSize="20" Margin="10,199,178.8,518"/>
+                            <Label Content ="Peso:" FontWeight="Bold" FontSize="20" Margin="10,264,178.8,452"/>
+                            <Label Content ="Edad:" FontWeight="Bold" FontSize="20" Margin="10,140,178.8,559"/>
+                            <Label x:Name="lblEdad" FontSize="20"
+                            Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.edad}" Margin="106,140,-54.2,578" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblSexo" FontSize="20"
+                            Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.sexo}" Margin="105,196,22,515" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblPeso" FontSize="20"
+                            Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.peso}" Margin="86,264,-20.8,427" Grid.ColumnSpan="2"/>
+                            <Button ToolTip="Salir" Grid.Column="1" Margin="315.0,586,22.2,120" Click="Button_Click" Cursor="Hand" HorizontalContentAlignment="Center" FontSize="25" VerticalContentAlignment="Center" Height="51" Width="99" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button.BorderBrush>
+                                    <SolidColorBrush Color="White" Opacity="0"/>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <SolidColorBrush Color="White" Opacity="0"/>
+                                </Button.Background>
+                                <Image Source="Imagenes/salir_c.png"/>
+                            </Button>
+                            <Image
+                                Source="{Binding ElementName=lstListaPerros,Path=SelectedItem.foto}" Margin="188.2,20,9.8,486" Grid.Column="1" Height="244"/>
+                            <Label Content="Descripción:" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top"/>
+                            <TextBox TextWrapping="Wrap" Text="{Binding ElementName=lstListaPerros,Path=SelectedItem.descripcion}" Grid.ColumnSpan="2" Margin="152,332,22,302" Background="#FFEAB981" BorderBrush="#FFEAB981" IsReadOnly="True" Cursor="Arrow" SelectionBrush="#FFEAB981"/>
+                            <Image Grid.Column="0" HorizontalAlignment="Left" Height="218" Margin="10,454,0,0" VerticalAlignment="Top" Width="223"
+                                   Source="{Binding ElementName=lstListaPerros,Path=SelectedItem.foto_padrino}"/>
+                            <Label x:Name="lbldni_p" Content="DNI:" Grid.Column="1" HorizontalAlignment="Left" Margin="12.4,544,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <Label x:Name="lblnom_p" Content="Nombre:" Grid.Column="1" HorizontalAlignment="Left" Margin="12.4,600,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <Label x:Name="lblape_p" Content="Apellido:" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,646,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <Label x:Name="lblDNI_p" Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.DNI_padrino}" Grid.Column="1" HorizontalAlignment="Left" Margin="79.4,544,0,0" VerticalAlignment="Top" Width="194" Height="37"/>
+                            <Label x:Name="lblnombre_p" Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.nombre_padrino}" Grid.Column="1" HorizontalAlignment="Left" Margin="110.4,600,0,0" VerticalAlignment="Top" Width="146" Height="37"/>
+                            <Label x:Name="lblapellido_p" Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.apellido_padrino}" Grid.Column="1" HorizontalAlignment="Left" Margin="110.4,646,0,0" VerticalAlignment="Top" Width="174" Height="37"/>
+                            <Label Content="Estado:" Grid.Column="1" HorizontalAlignment="Left" Margin="12.4,483,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <Label x:Name="lblEstado_Perro" Content="{Binding ElementName=lstListaPerros,Path=SelectedItem.estado}" Grid.Column="1" HorizontalAlignment="Left" Margin="107.4,483,0,0" VerticalAlignment="Top" Width="298" Height="37"/>
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Socios" FontSize="20"  >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="66*"/>
+                        <ColumnDefinition Width="41*"/>
+                        <ColumnDefinition Width="198*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="483*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="lstListaSocios" Grid.Column="0" SelectedIndex="0" Margin="5,5,4.8,5" ItemsSource="{Binding}" Grid.ColumnSpan="3" Foreground="#FFF9F4F4">
+                        <ListBox.BorderBrush>
+                            <SolidColorBrush Color="Black" Opacity="0"/>
+                        </ListBox.BorderBrush>
+                        <ListBox.Background>
+                            <SolidColorBrush Color="Black" Opacity="0.7"/>
+                        </ListBox.Background>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="80" Height="80"
+                                        Source="{Binding foto}"/>
+                                    <TextBlock VerticalAlignment="Center"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding DNI}" FontSize="20"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Margin" Value="2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Foreground" Value="#FF05FADC"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="BorderBrush" Value="#FF05FADC"/>
+                                        <Setter Property="BorderThickness" Value="3"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="miAniadirItemLBSocios" Header="Añadir socio" Click="miAniadirItemLBSocios_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="Imagenes/add_c.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem x:Name="miEliminarItemLBSocios" Header="Eliminar socio" Click="miEliminarItemLBSocios_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="Imagenes/remove_c.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                    <StackPanel x:Name="spDetallesSocios" Grid.Column="3"
+                        Orientation="Vertical" Grid.ColumnSpan="2" Margin="0.2,0,0,0">
+                        <Grid Margin="0,0,0.2,0" Height="647">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblDNIs" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.DNI}" Margin="77,15,-51.8,576" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblNombres" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.nombre}" Margin="117,76,53.2,528" Grid.ColumnSpan="2"/>
+                            <Label Content ="DNI:" FontWeight="Bold" FontSize="20" Margin="10,15,195,574.6"/>
+                            <Label Content ="Nombre:" FontWeight="Bold" FontSize="20" Margin="10,76,149.6,514"/>
+                            <Label Content ="Correo electrónico:" FontWeight="Bold" FontSize="20" Margin="10,199,52,392.6"/>
+                            <Label Content ="Telefono:" FontWeight="Bold" FontSize="20" Margin="10,264,149.6,319"/>
+                            <Label Content ="Apellido:" FontWeight="Bold" FontSize="20" Margin="10,140,149.6,456"/>
+                            <Label x:Name="lblApellidos" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.apellido}" Margin="117,140,-64.8,460" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblCorreos" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.correo}" Margin="215,199,-86.8,398" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblTelefonos" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.telefono}" Margin="117,264,-51.8,338" Grid.ColumnSpan="2"/>
+                            <Button ToolTip="Salir" Grid.Column="1" Margin="350.4,586,57,10" Click="Button_Click" Cursor="Hand" HorizontalContentAlignment="Center" FontSize="25" VerticalContentAlignment="Center" Height="51" Width="99" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button.BorderBrush>
+                                    <SolidColorBrush Color="White" Opacity="0"/>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <SolidColorBrush Color="White" Opacity="0"/>
+                                </Button.Background>
+                                <Image Source="Imagenes/salir_c.png"/>
+                            </Button>
+                            <Image
+                                Source="{Binding ElementName=lstListaSocios,Path=SelectedItem.foto}" Margin="188,0,10.2,397.8" Grid.Column="1" Height="244"/>
+                            <Label x:Name="lblCuentas" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.cuenta}" Margin="190,328,-17.8,274" Grid.ColumnSpan="2"/>
+                            <Label Content ="Cuenta bancaria:" FontWeight="Bold" FontSize="20" Margin="10,328,76.6,264"/>
+                            <Label Content ="Forma de pago:" FontWeight="Bold" FontSize="20" Margin="10,388,95.6,204"/>
+                            <Label x:Name="lblFormas" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.forma}" Margin="190,388,-17.8,214" Grid.ColumnSpan="2"/>
+                            <Label Content ="Cuantía de pago:" FontWeight="Bold" FontSize="20" Margin="10,448,76.6,144"/>
+                            <Label x:Name="lblCuantias" FontSize="20"
+                            Content="{Binding ElementName=lstListaSocios,Path=SelectedItem.cuantia}" Margin="190,448,-51.8,154" Grid.ColumnSpan="2"/>
+
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Voluntarios" FontSize="20" Height="30" Margin="-2,0,-1.8,0" VerticalAlignment="Top">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="66*"/>
+                        <ColumnDefinition Width="41*"/>
+                        <ColumnDefinition Width="198*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="483*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="lstListaVoluntarios" Grid.Column="0" SelectedIndex="0" Margin="5,5,4.8,5" ItemsSource="{Binding}" Grid.ColumnSpan="3" Foreground="#FFF9F4F4">
+                        <ListBox.BorderBrush>
+                            <SolidColorBrush Color="White" Opacity="0"/>
+                        </ListBox.BorderBrush>
+                        <ListBox.Background>
+                            <SolidColorBrush Color="Black" Opacity="0.7"/>
+                        </ListBox.Background>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="80" Height="80"
+                                        Source="{Binding foto}"/>
+                                    <TextBlock VerticalAlignment="Center"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding DNI}" FontSize="20"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Margin" Value="2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Foreground" Value="#FF05FADC"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="BorderBrush" Value="#FF05FADC"/>
+                                        <Setter Property="BorderThickness" Value="3"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="miAniadirItemLB" Header="Añadir voluntario" Click="miAniadirItemLB_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="Imagenes/add_c.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem x:Name="miEliminarItemLB" Header="Eliminar voluntario" Click="miEliminarItemLB_Click">
+                                    <MenuItem.Icon>
+                                        <Image Source="Imagenes/remove_c.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                    <StackPanel x:Name="spDetallesVoluntarios" Grid.Column="3"
+                        Orientation="Vertical" Grid.ColumnSpan="2" Margin="0.2,0,0,0">
+                        <Grid Margin="0,0,0.2,0" Height="647">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblDNI" FontSize="20"
+                            Content="{Binding ElementName=lstListaVoluntarios,Path=SelectedItem.DNI}" Margin="72,14,-64.8,574" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblNombre" FontSize="20"
+                            Content="{Binding ElementName=lstListaVoluntarios,Path=SelectedItem.nombre}" Margin="127,76,22.2,514" Grid.ColumnSpan="2"/>
+                            <Label Content ="DNI:" FontWeight="Bold" FontSize="20" Margin="10,15,195,574.6"/>
+                            <Label Content ="Nombre:" FontWeight="Bold" FontSize="20" Margin="10,76,158.6,514"/>
+                            <Label Content ="Correo electrónico:" FontWeight="Bold" FontSize="20" Margin="10,199,52,392.6"/>
+                            <Label Content ="Telefono:" FontWeight="Bold" FontSize="20" Margin="10,264,139.6,319"/>
+                            <Label Content ="Apellido:" FontWeight="Bold" FontSize="20" Margin="10,140,158.6,456"/>
+                            <Label x:Name="lblApellido"  FontSize="20"
+                            Content="{Binding ElementName=lstListaVoluntarios,Path=SelectedItem.apellido}" Margin="127,138,-96,456" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblCorreo" FontSize="20"
+                            Content="{Binding ElementName=lstListaVoluntarios,Path=SelectedItem.correo}" Margin="224,199,-95.8,397.6" Grid.ColumnSpan="2"/>
+                            <Label x:Name="lblTelefono" FontSize="20"
+                            Content="{Binding ElementName=lstListaVoluntarios,Path=SelectedItem.telefono}" Margin="127,264,-82.8,337" Grid.ColumnSpan="2"/>
+                            <Button ToolTip="Salir" Grid.Column="1" Margin="350.4,586,57,10" Click="Button_Click" Cursor="Hand" HorizontalContentAlignment="Center" FontSize="25" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button.BorderBrush>
+                                    <SolidColorBrush Color="White" Opacity="0"/>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <SolidColorBrush Color="White" Opacity="0"/>
+                                </Button.Background>
+                                <Image Source="Imagenes/salir_c.png"/>
+                            </Button>
+                            <Image
+                                Source="{Binding ElementName=lstListaVoluntarios,Path=SelectedItem.foto}" Margin="188.4,0,10,403" Grid.Column="1" Height="244"/>
+                            <Label Content ="Zona disponibilidad:" FontWeight="Bold" FontSize="20" Margin="10,319,52,264.6"/>
+                            <Image
+                                Source="{Binding ElementName=lstListaVoluntarios,Path=SelectedItem.zona}" Margin="10,369,9.8,36" Grid.Column="0"/>
+                            <Image Height="100" Width="100"/>
+                        </Grid>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </TabItem>
+
+
+        </TabControl>
+        <Label x:Name="lblUsuario" Content="Label" Margin="458,10,178.2,268.6" FontSize="18" FontStyle="Italic" Grid.ColumnSpan="3"/>
+    </Grid>
+</Window>

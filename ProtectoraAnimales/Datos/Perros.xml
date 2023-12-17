@@ -1,0 +1,36 @@
+﻿<Perros>
+	<Perro nombre="Corina"
+	raza="Pastor Alemán"
+	edad="2 años"
+	sexo="Hembra"
+	peso="25 kg"
+	foto="imagenes/corina.jpg"
+	descripcion="Perra muy sociable con otros perros, gatos y niños. No tiene chip y está vacunado. Es muy activa, le gusta mucho jugar al aire libre y es muy obediente."
+	DNI_p="654774125Y"
+	nombre_p="Paco"
+	apellido_p="Pérez"
+	foto_p="imagenes/paco.png"/>
+	<Perro nombre="Max"
+	raza="Pitbull"
+	edad="6 meses"
+	sexo="Macho"
+	peso="10 kg"
+	foto="imagenes/pitbull.png"
+	descripcion="Cachorro muy sociable con niños, aunque con otros perros y gatos es más asustadizo. No tiene chip y tampoco tiene las vacunas. Le gusta mucho dar paseos ya que es bastante activo."
+	DNI_p="652478522E"
+	nombre_p="Elena"
+	apellido_p="Sánchez"
+	foto_p="imagenes/elena.png"/>
+	<Perro nombre="Luna"
+	raza="Labrador"
+	edad="5 años"
+	sexo="Hembra"
+	peso="28 kg"
+	foto="imagenes/luna.png"
+	descripcion="Es la acompañante perfecta para los niños. Sociable y tranquila con otros animales y con personas. Está vacunada contra la rabia y aunque superó la leishmaniosis hace un año, necesita tratamiento 3 veces por semana. Le gusta salir a pasear y dormir."
+	DNI_p=""
+	nombre_p=""
+	apellido_p=""
+	foto_p=""/>
+</Perros>
+
